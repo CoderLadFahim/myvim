@@ -88,6 +88,8 @@ autocmd BufEnter NERD_* setlocal rnu
 
 let g:airline_theme='base16'
 
+" let php_sql_query=1
+
 " Abbreviations
 "JAVASCRIPT
 ab cl console.log(
@@ -119,6 +121,10 @@ nnoremap <leader>PC :PluginClean
 
 " Delete Everything
 nnoremap <leader>dAA ggdG
+
+" Change split size
+nnoremap <leader>- <C-w><
+nnoremap <leader>+ <C-w>>
 
 " Tabs
 nnoremap <leader>tn :tabedit<CR>
