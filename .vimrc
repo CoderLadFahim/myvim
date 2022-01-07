@@ -88,29 +88,7 @@ autocmd BufEnter NERD_* setlocal rnu
 
 let g:airline_theme='base16'
 
-" let php_sql_query=1
-
-" Abbreviations
-"JAVASCRIPT
-ab cl console.log(
-ab cd console.dir(
-ab fne const functionName = (params) => {}
-ab fnd function functionName(params) {}
-ab dq document.querySelector('
-ab im import something from 'somewhere' 
-ab dsc describe('something', () => {})
-ab itb it('does something', () => {})
-ab ed export default something
-" React
-ab ius import {useState} from 'react'
-ab iue import {useEffect} from 'react'
-ab iuse import {useState, useEffect} from 'react'
-ab ue useEffect(() => {}, [])
-ab us const [something, setSomething] = useState(null)
-ab rcc function Component() {return (<>Content</>)}; export default Component;
-ab rns 'Inky pinkies per donkey monkeys'
-ab st setTimeout(() => {}, 1000)
-ab si setInterval(() => {}, 1000)
+let php_sql_query=1
 
 let mapleader = " "
 
@@ -163,7 +141,7 @@ nnoremap <leader>src :source %
 " Git commands
 nnoremap <leader>glo :G log --oneline
 nnoremap <leader>gs :G status
-nnoremap <leader>gb :G branch
+nnoremap <leader>gbl :G branch
 nnoremap <leader>gbd :G branch -D
 nnoremap <leader>gd :G diff
 nnoremap <leader>gnb :G checkout -b 
