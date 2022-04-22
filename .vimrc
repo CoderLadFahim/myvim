@@ -92,8 +92,6 @@ let php_sql_query=1
 
 let mapleader = " "
 
-inoremap <leader>q <C-w>N<CR>
-
 nnoremap <leader>PI :PluginInstall
 nnoremap <leader>PC :PluginClean
 
