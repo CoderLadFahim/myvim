@@ -71,6 +71,7 @@ set noswapfile
 set complete+=kspell
 set completeopt+=menuone,longest
 set updatetime=100
+set wildignore+=*/node_modules/**/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk,*/vendor/**/*
 
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -80,6 +81,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_use_caching = 'false'
+let g:ctrlp_clear_cache_on_exit = 0
 
 nnoremap <C-g> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "right"
