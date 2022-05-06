@@ -1,3 +1,19 @@
+" Vim setup
+" 1. git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" 2. npm install in the coc.nvim directory
+" 1. npm install in the prettier directory
+
+" SSH & GPG keys setup for github
+" 1. ssh-keygen -t rsa -b 4096 -C '[EMAIL]'
+" 2. press enter 
+" 3. Enter passphrase
+" 4. Confirm passphrase
+" 5. eval $(ssh-agent -s)
+" 6. ssh-add ~/.ssh/id_rsa
+" 7. Enter the given passphrase
+" 8. clip < ~/.ssh/id_rsa.pub
+" 9. paste the key in github
+
 set nocompatible              " be improved, required
 filetype off                  " required
 
@@ -42,9 +58,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'pangloss/vim-javascript'
 Plugin 'posva/vim-vue'
-Plugin 'morhetz/gruvbox'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 filetype plugin indent on    " required
@@ -62,7 +76,7 @@ filetype plugin indent on    " required
 call vundle#end()
 
 " CoC extensions
-let g:coc_global_extensions = ['coc-tsserver']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-phpls', 'coc-tabnine']
 
 set tabstop=3 shiftwidth=3
 set number
@@ -73,13 +87,14 @@ set completeopt+=menuone,longest
 set updatetime=100
 set wildignore+=*/node_modules/**/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk,*/vendor/**/*
 
-let g:prettier#autoformat = 1
+let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#config#single_quote = 'true'
+let g:prettier#config#use_tabs = 'false'
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|vendor'
 let g:ctrlp_use_caching = 'false'
 let g:ctrlp_clear_cache_on_exit = 0
 
@@ -121,9 +136,6 @@ vnoremap K :m '<-2<CR>gv=gv
 nnoremap J yyp
 nnoremap K yyP
 
-vnoremap <leader>J :co .<CR>
-vnoremap <leader>K :copy .-1<CR>
-
 "vnoremap <tab>J:co '><CR>V'[=gv
 
 " Find and Replace
@@ -153,11 +165,15 @@ nnoremap <leader>gcm :G commit -m ""
 nnoremap <leader>gcam :G commit --amend -m ""
 nnoremap <leader>gcan :G commit --amend --no-edit
 nnoremap <leader>gm :G merge
+nnoremap <leader>gplb :G pull origin 
+nnoremap <leader>gpscb :G push origin -u HEAD
+nnoremap <leader>gpsb :G push origin -u 
 
-nnoremap <C-h> :wincmd h<CR>
-nnoremap <C-j> :wincmd j<CR>
-nnoremap <C-k> :wincmd k<CR>
-nnoremap <C-l> :wincmd l<CR>
+" switching between splits
+nnoremap <leader>hh :wincmd h<CR>
+nnoremap <leader>jj :wincmd j<CR>
+nnoremap <leader>kk :wincmd k<CR>
+nnoremap <leader>ll :wincmd l<CR>
 
 " single line visual mode
 nnoremap <leader>v <C-v>
@@ -236,3 +252,7 @@ function MyTabLine()
         endif
         return s
 endfunction
+
+if getcwd() =~# '^\(/some/safe/path/\|/another/safe/path/\)'
+  set secure exrc
+endif
