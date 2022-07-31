@@ -90,7 +90,7 @@ set complete+=kspell
 set completeopt+=menuone,longest
 set updatetime=100
 set wildignore+=*/node_modules/**/*,_site,*/__pycache__/,*/venv/*,*/target/*,*/.vim$,\~$,*/.log,*/.aux,*/.cls,*/.aux,*/.bbl,*/.blg,*/.fls,*/.fdb*/,*/.toc,*/.out,*/.glo,*/.log,*/.ist,*/.fdb_latexmk,*/vendor/**/*
-set list lcs=tab:\|\ 
+set list lcs=tab:\¦\ 
 
 let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0
