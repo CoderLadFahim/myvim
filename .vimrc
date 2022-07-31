@@ -59,7 +59,10 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'posva/vim-vue'
+Plugin 'morhetz/gruvbox'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'Yggdroot/indentLine'
+
 
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -78,6 +81,7 @@ call vundle#end()
 " CoC extensions
 let g:coc_global_extensions = ['coc-tsserver', 'coc-phpls', 'coc-tabnine']
 
+syntax on
 set tabstop=3 shiftwidth=3
 set number
 set rnu
@@ -174,9 +178,6 @@ nnoremap <leader>hh :wincmd h<CR>
 nnoremap <leader>jj :wincmd j<CR>
 nnoremap <leader>kk :wincmd k<CR>
 nnoremap <leader>ll :wincmd l<CR>
-
-" single line visual mode
-nnoremap <leader>v <C-v>
 
 " See time
 nnoremap <leader>dt :echo system("date")<CR>
